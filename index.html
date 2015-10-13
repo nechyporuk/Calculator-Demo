@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Calculator demo</title>
+	<link rel="stylesheet" href="libs/bootstrap/css/style.css"></link>
+	<link rel="stylesheet" href="libs/bootstrap/css/bootstrap.css"></link>
+	<link rel="stylesheet" href="libs/bootstrap/css/bootstrap-theme.css"></link>
+
+</head>
+<body>
+	<div class="container">
+		<form id="form" class="col-md-7"  method="POST">
+			<div class="row">
+				<h2> Product Type </h2>
+				<select data-total="0" name="type">
+					<option data-price="0" data-label="Choose a widget"> Choose a widget </option> 
+					<option data-price="50" data-label="Basic Widget"> Basic Widget </option>
+					<option data-price="100" data-label="Medium Widget"> Medium Widget </option>
+					<option data-price="150" data-label="Advanced Widget"> Advanced Widget </option>
+				</select>
+			</div>			
+
+			<div class="row">
+				<h2> Product Upgrades </h2>
+				<input type="checkbox" name="feat1" data-price="10" data-label="Feature 1" >
+				Optional Feature 1
+				<input type="checkbox" name="feat2" data-price="210" data-label="Feature 2" >
+				Optional Feature 2
+				<input type="checkbox" name="feat3" data-price="25" data-label="Feature 3" >
+				Optional Feature 3
+				<input type="checkbox" name="feat4" data-price="410" data-label="Feature 4">
+				Optional Feature 4
+			</div>		
+				
+		
+			<div class="row">
+				<textarea name="comments" id=""  cols="70" rows="5" placeholder="Enter you comments"></textarea>
+			</div>
+
+			<div class="row">
+				<h4> Amount  needed </h4>
+				<input type="number" data-mult="1" data-label="Amount" id="amount" value="1" name="amount">
+			</div>
+
+			<div class="row"><input type="text" placeholder="Enter you email" name="mail"></div>
+
+			<div class="row">
+				<button class="btn btn-primary" type="submit">Send</button>
+			</div>
+		</form>
+
+		<div class="result col-md-offset-1 col-md-4">
+			<h2>Total: <span id="total">0</span> $</h2>
+			<ul></ul>			
+		</div>	
+	
+	</div>
+	
+	<script src="libs/jquery-2.1.4.js"></script>
+	<script src="js/plugin.js"></script>
+
+	<script>
+		$('#form').defaultPluginName({
+			amount: "#amount", 
+			ajaxOptions: {url: "/send"}
+		});		
+	</script>
+</body>
+</html>
